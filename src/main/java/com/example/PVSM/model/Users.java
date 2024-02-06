@@ -1,4 +1,4 @@
-package com.example.PVSM.model;
+package com.example.pvsm.model;
 
 import jakarta.persistence.*;
 
@@ -10,6 +10,7 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_id;
 
+    private String uuid;
     private String username;
     private String userpws;
     private String email;
@@ -19,12 +20,21 @@ public class Users {
         // 可以是空的或者初始化屬性的操作
     }
 
+    public Users(String uuid, String username, String userpws, String email, String nickname) {
 
-    public Users(String username, String userpws, String email, String nickname) {
+        this.uuid = uuid;
         this.username = username;
         this.userpws = userpws;
         this.email = email;
         this.nickname = nickname;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public Integer getUser_id() {
